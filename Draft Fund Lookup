@@ -6,23 +6,10 @@ if(COA_User[ID == row.Fund_Description].count() > 0)
 	//Looks up the COA Description ID in the COA Table  and saves it to the FundInput3 variable
 	FundInput3 = COA[ID == FundInput2];
 	//The FundInput3.variable is used to get the record ID for each part of the string code and applies the record ID to a varialbe associated with the string code
-	uni = FundInput3.Unit;
-	act = FundInput3.Activity;
-	fun = FundInput3.Fund;
-	app = FundInput3.Appropriation;
-	mpr = FundInput3.Major_Program;
-	pro = FundInput3.Program;
-	//The varialbe associated with the string code is used to look up the string in the each of the string code tables
-	unidis = Unit_Form[ID == uni];
-	row.Unit=unidis.Unit;
-	actdis = Activity_Form[ID == act];
-	row.Activity=actdis.Activity;
-	fundis = Fund_Form[ID == fun];
-	row.Fund=fundis.Fund;
-	appdis = Appropriation_Form[ID == app];
-	row.Appropriation=appdis.Appropriation;
-	mprdis = Major_Program_Form[ID == mpr];
-	row.Major_Program=mprdis.Major_Program;
-	prodis = Program_Form[ID == pro];
-	row.Program=prodis.Program;
+	row.Unit = FundInput3.Unit;
+	row.Activity = FundInput3.Activity;
+	row.Fund = FundInput3.Fund;
+	row.Appropiation = FundInput3.Appropriation;
+	row.Major_Program = FundInput3.Major_Program;
+	row.Program = FundInput3.Program;
 }
