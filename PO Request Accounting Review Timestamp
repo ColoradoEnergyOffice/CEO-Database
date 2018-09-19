@@ -1,0 +1,10 @@
+if(input.Accounting_Review == TRUE)
+{
+	//time stamps the PM review
+	input.Accounting_Review_Timestamp = zoho.currenttime;
+}
+if(input.Accounting_Review == FALSE)
+{
+	//un-time stamps the PM review
+	input.Accounting_Review_Timestamp = null;
+}
