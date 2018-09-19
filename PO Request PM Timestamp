@@ -1,0 +1,17 @@
+if(input.Program_Manager_Review == TRUE)
+{
+	//time stamps the PM review
+	input.Program_Manager_Review_Timestamp = zoho.currenttime;
+}
+if(input.Program_Manager_Review == FALSE)
+{
+	//un-time stamps the PM review
+	input.Program_Manager_Review_Timestamp = null;
+	//un-checks and un-time stamps all other reviews
+	input.Accounting_Review = null;
+	input.Accounting_Review_Timestamp = null;
+	input.Supervisor_Approval = null;
+	input.Supervisor_Approval_Timestamp = null;
+	input.Director_of_Accounting_Approval = null;
+	input.Director_of_Accounting_Approval_Timestamp = null;
+}
