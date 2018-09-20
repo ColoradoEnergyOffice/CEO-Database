@@ -1,4 +1,0 @@
-// Looks up User Name based on User Email. Line 2 fetches the User Email string from the zoho global varialbe zoho.loginuserid. Line 3 creates the UserInfo variable and assigns the Code_Lookup_Test record ID to it based on the Code_Lookup_Test record that matches the User_Email_2 input value. Line 4 then looks up the Name field of the referenced record and assigns it to the User_Name_2 field.
-input.User_Email_2 = zoho.loginuserid;
-UserInfo = Code_Lookup_Test[Email == input.User_Email_2];
-input.User_Name_2 = UserInfo.Name;
