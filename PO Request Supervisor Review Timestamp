@@ -1,0 +1,10 @@
+if(input.Supervisor_Approval == TRUE)
+{
+	//time stamps the Supervisor review
+	input.Supervisor_Approval_Timestamp = zoho.currenttime;
+}
+if(input.Supervisor_Approval == FALSE)
+{
+	//un-time stamps the Supervisor review
+	input.Supervisor_Approval_Timestamp = null;
+}
