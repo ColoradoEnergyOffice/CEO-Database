@@ -1,0 +1,10 @@
+if(input.Director_of_Accounting_Approval == TRUE)
+{
+	//time stamps the Director of Accounting review
+	input.Director_of_Accounting_Approval_Timestamp = zoho.currenttime;
+}
+if(input.Director_of_Accounting_Approval == FALSE)
+{
+	//un-time stamps the Director of Accounting review
+	input.Director_of_Accounting_Approval_Timestamp = null;
+}
