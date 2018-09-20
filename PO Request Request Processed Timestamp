@@ -1,0 +1,10 @@
+if(input.Request_Processed == TRUE)
+{
+	//time stamps the Request Processed
+	input.Request_Processed_Timestamp = zoho.currenttime;
+}
+if(input.Request_Processed == FALSE)
+{
+	//un-time stamps the Request Processed
+	input.Request_Processed_Timestamp = null;
+}
