@@ -1,0 +1,107 @@
+//In State travel emails
+if(Travel_Type == "In State")
+{
+	if(zoho.loginuserid == input.Director_Email)
+	{
+		//Sends Supervisor Signature Confirmation Email to Traveler
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :input.Traveler_Email
+			subject :"Travel Request " + input.Trip_Name + " approved by director - Book your travel"
+			message :"Travel Request " + input.Trip_Name + " has been signed by your Director. You may now book your travel. Access your Travel Request record at https://app.zohocreator.com/ryanharry/ceo-operations-database#Report:Travel_Request_Table."
+		]
+		//Sends Signature Confirmation Email to Accounting
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :"anthony.pollard@state.co.us"
+			subject :"Travel Request " + input.Trip_Name + " approved"
+			message :"Travel Request " + input.Trip_Name + " has been fully signed. Print record at: https://app.zohocreator.com/ryanharry/ceo-operations-database/#Page:Travel_Request_Printout?recordID=" + input.ID
+		]
+	}
+}
+//Non-In-state/Non-DC travel email
+else if(Travel_Type != "In State" && DC == FALSE)
+{
+	if(zoho.loginuserid == input.Director_Email)
+	{
+		//Sends Supervisor Signature Confirmation Email to Traveler
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :input.Traveler_Email
+			subject :"Travel Request " + input.Trip_Name + " approved by Supervisor - Waiting for Executive signature"
+			message :"Travel Request " + input.Trip_Name + " has been signed by your director. However, it is still waiting for Executive review and signature. Do not book your travel yet. Access this Travel Request record at https://app.zohocreator.com/ryanharry/ceo-operations-database#Report:Travel_Request_Table."
+		]
+		//Sends Email to Executive
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :input.Executive_Email
+			subject :"Travel Request " + input.Trip_Name + " ready for Executive approval"
+			message :"Travel Request" + input.Trip_Name + "requires your review and signature. Access this Travel Request record at https://app.zohocreator.com/ryanharry/ceo-operations-database#Report:Travel_Request_Table."
+		]
+	}
+	else if(zoho.loginuserid == input.Executive_Email)
+	{
+		//Sends Executive Signature Confirmation Email to Traveler
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :input.Traveler_Email
+			subject :"Travel Request " + input.Trip_Name + " approved by Executive - Book your travel"
+			message :"Travel Request " + input.Trip_Name + " has been signed by your Executive. You may now book your travel. Access your Travel Request record at https://app.zohocreator.com/ryanharry/ceo-operations-database#Report:Travel_Request_Table."
+		]
+		//Sends Signature Confirmation Email to Accounting
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :"anthony.pollard@state.co.us"
+			subject :"Travel Request " + input.Trip_Name + " approved"
+			message :"Travel Request " + input.Trip_Name + " has been fully signed. Print record at: https://app.zohocreator.com/ryanharry/ceo-operations-database/#Page:Travel_Request_Printout?recordID=" + input.ID
+		]
+	}
+}
+//DC travel email
+else if(Travel_Type != "In State" && DC == TRUE)
+{
+	if(zoho.loginuserid == input.Director_Email)
+	{
+		//Sends Supervisor Signature Confirmation Email to Traveler
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :input.Traveler_Email
+			subject :"Travel Request " + input.Trip_Name + " approved by Supervisor - Waiting for Executive signature"
+			message :"Travel Request " + input.Trip_Name + " has been signed by your director. However, it is still waiting for Executive review and signature. Do not book your travel yet. Access this Travel Request record at https://app.zohocreator.com/ryanharry/ceo-operations-database#Report:Travel_Request_Table."
+		]
+		//Sends Email to Executive
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :input.Executive_Email
+			subject :"Travel Request " + input.Trip_Name + " ready for Executive approval"
+			message :"Travel Request" + input.Trip_Name + "requires your review and signature. Access this Travel Request record at https://app.zohocreator.com/ryanharry/ceo-operations-database#Report:Travel_Request_Table."
+		]
+	}
+	else if(zoho.loginuserid == input.Executive_Email)
+	{
+		//Sends Executive Signature Confirmation Email to Traveler
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :input.Traveler_Email
+			subject :"Travel Request " + input.Trip_Name + " approved by Executive - Book your travel"
+			message :"Travel Request " + input.Trip_Name + " has been signed by your Executive. However, you still need to get Gov's Office approval. Access your Travel Request record at https://app.zohocreator.com/ryanharry/ceo-operations-database#Report:Travel_Request_Table."
+		]
+		//Sends Signature Confirmation Email to Accounting
+		sendmail
+		[
+			from :zoho.loginuserid
+			to :"anthony.pollard@state.co.us"
+			subject :"Travel Request " + input.Trip_Name + " approved"
+			message :"Travel Request " + input.Trip_Name + " has been fully signed. Print record at: https://app.zohocreator.com/ryanharry/ceo-operations-database/#Page:Travel_Request_Printout?recordID=" + input.ID
+		]
+	}
+}
