@@ -1,0 +1,3 @@
+//Disables User Name and User Email fields
+disable User_Email;
+disable User_Name;
