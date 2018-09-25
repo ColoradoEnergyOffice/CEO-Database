@@ -1,0 +1,7 @@
+//The record ID parameter from the PO request form is passed through to the payment form embedded in the Zoho Page. The parameter is stored in the ID Number field on the payment form.
+//The payment form uses the ID Number to lookup and populate the other fields in the form based on the PO request form.
+RecordInfo = Lookup_Test_1[ID == input.ID_Number];
+input.Record_Name = RecordInfo.Record_Name;
+input.Name = RecordInfo.Name;
+input.Title = RecordInfo.Title;
+input.Email = RecordInfo.Email;
