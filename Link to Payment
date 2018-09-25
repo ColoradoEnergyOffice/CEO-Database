@@ -1,0 +1,12 @@
+//This script creates a link to allow for pre-population of a payment form based on the PO request form. The link only displays after the PO request is approved.
+//The link does not show if the PO request is no approved.
+if(input.Approved == false)
+{
+	hide Note;
+}
+//When the PO request is approved, a link apprears. The link contains a parameter which is passed through to a Zoho Page containing the payment form. The payment form uses the passed parameter to pre-populate its fields.
+else if(input.Approved == true)
+{
+	input.Note = "<a href=https://app.zohocreator.com/ryanharry/ceo-database/#Page:Lookup_Test_21?RecordName=" + input.ID + ">Create Payment Form</a>";
+	show Note;
+}
