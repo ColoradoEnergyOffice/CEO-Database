@@ -1,0 +1,81 @@
+if(input.Program_Manager_Review==TRUE)
+{
+if(input.Record_Name.length() == 0)
+{
+	alert "Project Title field must be completed";
+	cancel submit;
+}
+if(input.Project_Description.length() == 0)
+{
+	alert "Project Description field must be completed";
+	cancel submit;
+}
+if(input.Justification.length() == 0)
+{
+	alert "Project Justification field must be completed";
+	cancel submit;
+}
+if(input.Statement_of_Work.length() == 0)
+{
+	alert "The Statement of Work must be uploaded";
+	cancel submit;
+}
+if(input.Start_Date == null)
+{
+	alert "Project Start Date field must be completed";
+	cancel submit;
+}
+if(input.End_Date == null)
+{
+	alert "Project End Date field must be completed";
+	cancel submit;
+}
+if(input.Vendor_Name.length() == 0)
+{
+	alert "Vendor Name field must be completed";
+	cancel submit;
+}
+if(input.Vendor_Tax_ID.length() == 0)
+{
+	alert "Vendor Tax ID field must be completed";
+	cancel submit;
+}
+if(input.Vendor_Street_Address.length() == 0)
+{
+	alert "Vendor Street Address field must be completed";
+	cancel submit;
+}
+if(input.Vendor_City.length() == 0)
+{
+	alert "Vendor City field must be completed";
+	cancel submit;
+}
+if(input.Vendor_State.length() == 0)
+{
+	alert "Vendor State field must be completed";
+	cancel submit;
+}
+if(input.Vendor_Zip_Code.length() == 0)
+{
+	alert "Vendor Zip Code field must be completed";
+	cancel submit;
+}
+if(input.Vendor_Contact_Name.length() == 0 || input.Vendor_Contact_E_mail.length() == 0 || input.Vendor_Contact_Phone.length() == 0)
+{
+	alert "Vendor Contact information fields must be completed";
+	cancel submit;
+}
+for each  line in Tracker
+{
+	if(line.COA == null)
+	{
+		alert "Check to make sure all lines in the Expenditure Info Description field are complete";
+		cancel submit;
+	}
+	if(line.Amount == null)
+	{
+		alert "Check to make sure all lines in the Expenditure Info Amount field are complete";
+		cancel submit;
+	}
+}
+}
