@@ -1,0 +1,79 @@
+if(input.Program_Manager_Review == TRUE)
+{
+	if(input.Record_Name.length() == 0)
+	{
+		alert "Expenditure Name field must be completed";
+		cancel submit;
+	}
+	if(input.Justification.length() == 0)
+	{
+		alert "Expenditure Justification field must be completed";
+		cancel submit;
+	}
+	if(input.Quote_Attachment.length() == 0)
+	{
+		alert "Documentation of Quote/Fee must be uploaded";
+		cancel submit;
+	}
+	if(input.Payment_Delivery.length() == 0)
+	{
+		alert "Please select a Payment Delivery type";
+		cancel submit;
+	}
+	if(input.Vendor_Name.length() == 0)
+	{
+		alert "Vendor Name field must be completed";
+		cancel submit;
+	}
+	if(input.Vendor_Street_Address.length() == 0)
+	{
+		alert "Vendor Street Address field must be completed";
+		cancel submit;
+	}
+	if(input.Vendor_City.length() == 0)
+	{
+		alert "Vendor City field must be completed";
+		cancel submit;
+	}
+	if(input.Vendor_State.length() == 0)
+	{
+		alert "Vendor State field must be completed";
+		cancel submit;
+	}
+	if(input.Vendor_Zip_Code.length() == 0)
+	{
+		alert "Vendor Zip Code field must be completed";
+		cancel submit;
+	}
+	for each  line in Expenditure_Info
+	{
+		if(line.COA == null)
+		{
+			alert "Check to make sure COA descriptions are entered for all lines in the Expenditure Info section";
+			cancel submit;
+		}
+		if(line.Amount == null)
+		{
+			alert "Check to make sure amounts are entered for all lines in the Expenditure Info section";
+			cancel submit;
+		}
+	}
+	for each  row in Line_Item_Summary
+	{
+		if(row.Item == null)
+		{
+			alert "Check to make Item descriptions are entered for all lines in the Line Item Summary section";
+			cancel submit;
+		}
+		if(row.Amount == null)
+		{
+			alert "Check to make amounts are entered for all lines in the Line Item Summary section";
+			cancel submit;
+		}
+	}
+	if(input.Total_Line_Item_Summary_Amount != input.Total_Expenditure_Info_Amount)
+	{
+		alert "Check to make sure the entered amounts in the Expenditure Info section equal the entered amounts in the Line Item Summary section";
+		cancel submit;
+	}
+}
